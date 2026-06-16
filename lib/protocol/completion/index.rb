@@ -9,12 +9,6 @@ module Protocol
 		module Index
 			VARIABLE = "COMPLETION_INDEX"
 			
-			def self.get(environment = ENV)
-				if value = environment[VARIABLE]
-					Integer(value) unless value.empty?
-				end
-			end
-			
 			def self.extract(environment = ENV)
 				if value = environment.delete(VARIABLE)
 					Integer(value) unless value.empty?

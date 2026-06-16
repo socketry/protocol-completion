@@ -6,13 +6,6 @@
 require "protocol/completion"
 
 describe Protocol::Completion::Index do
-	it "gets the completion index from the environment" do
-		environment = {"COMPLETION_INDEX" => "2"}
-		
-		expect(subject.get(environment)).to be == 2
-		expect(environment).to be == {"COMPLETION_INDEX" => "2"}
-	end
-	
 	it "extracts the completion index from the environment" do
 		environment = {"COMPLETION_INDEX" => "2"}
 		
