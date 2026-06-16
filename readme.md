@@ -1,3 +1,3 @@
 # Protocol::Completion
 
-A command-line completion protocol and shell integration.
+A command-line completion protocol.

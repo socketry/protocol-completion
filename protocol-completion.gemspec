@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
 	spec.name = "protocol-completion"
 	spec.version = Protocol::Completion::VERSION
 	
-	spec.summary = "A command-line completion protocol and shell integration."
+	spec.summary = "A command-line completion protocol."
 	spec.authors = ["Samuel Williams"]
 	spec.license = "MIT"
 	
