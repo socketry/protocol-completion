@@ -3,9 +3,9 @@
 # Released under the MIT License.
 # Copyright, 2026, by Samuel Williams.
 
-require "completion"
+require "protocol/completion"
 
-describe Completion::Index do
+describe Protocol::Completion::Index do
 	it "gets the completion index from the environment" do
 		environment = {"COMPLETION_INDEX" => "2"}
 		

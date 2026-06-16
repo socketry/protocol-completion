@@ -12,7 +12,8 @@ require_relative "completion/shell"
 require_relative "completion/shell/bash"
 require_relative "completion/shell/fish"
 require_relative "completion/shell/zsh"
-require_relative "completion/command/bundler"
 
-module Completion
+module Protocol
+	module Completion
+	end
 end

@@ -3,6 +3,8 @@
 # Released under the MIT License.
 # Copyright, 2026, by Samuel Williams.
 
-module Completion
-	VERSION = "0.0.0"
+module Protocol
+	module Completion
+		VERSION = "0.0.0"
+	end
 end

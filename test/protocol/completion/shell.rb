@@ -3,10 +3,10 @@
 # Released under the MIT License.
 # Copyright, 2026, by Samuel Williams.
 
-require "completion"
+require "protocol/completion"
 require "sus/fixtures/temporary_directory_context"
 
-describe Completion::Shell do
+describe Protocol::Completion::Shell do
 	include Sus::Fixtures::TemporaryDirectoryContext
 	
 	it "generates shell completion scripts" do
@@ -40,8 +40,8 @@ describe Completion::Shell do
 	
 	it "prints candidates as TSV" do
 		output = StringIO.new
-		result = Completion::Result.new([
-			Completion::Candidate.new(value: "serve", description: "Run the server.", type: :command)
+		result = Protocol::Completion::Result.new([
+			Protocol::Completion::Candidate.new(value: "serve", description: "Run the server.", type: :command)
 		])
 		
 		result.print(output)
@@ -50,8 +50,8 @@ describe Completion::Shell do
 	end
 	
 	it "exposes candidates" do
-		candidate = Completion::Candidate.new(value: "serve")
-		result = Completion::Result.new([candidate])
+		candidate = Protocol::Completion::Candidate.new(value: "serve")
+		result = Protocol::Completion::Result.new([candidate])
 		
 		expect(result.candidates).to be == [candidate]
 	end
