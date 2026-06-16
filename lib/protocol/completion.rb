@@ -6,7 +6,6 @@
 require_relative "completion/version"
 require_relative "completion/candidate"
 require_relative "completion/result"
-require_relative "completion/index"
 require_relative "completion/request"
 
 module Protocol

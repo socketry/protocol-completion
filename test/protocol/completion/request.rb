@@ -6,21 +6,23 @@
 require "protocol/completion"
 
 describe Protocol::Completion::Request do
-	it "extracts a completion request from arguments and environment" do
-		arguments = ["serve", "--port"]
-		environment = {"COMPLETION_INDEX" => "1"}
+	it "extracts a completion request from arguments" do
+		arguments = ["serve", "--port", ""]
 		
-		request = subject.extract(arguments, environment: environment)
+		request = subject.extract(arguments)
 		
-		expect(request.arguments).to be_equal(arguments)
-		expect(request.index).to be == 1
-		expect(environment).to be == {}
+		expect(request.arguments).to be == arguments
 	end
 	
-	it "returns nil when no completion request is present" do
-		environment = {}
+	it "coerces arguments to strings" do
+		request = subject.extract([:serve])
 		
-		expect(subject.extract(["serve"], environment: environment)).to be_nil
-		expect(environment).to be == {}
+		expect(request.arguments).to be == ["serve"]
+	end
+	
+	it "treats empty arguments as an empty current token" do
+		request = subject.extract([])
+		
+		expect(request.arguments).to be == [""]
 	end
 end

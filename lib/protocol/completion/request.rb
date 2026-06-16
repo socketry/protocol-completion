@@ -5,12 +5,13 @@
 
 module Protocol
 	module Completion
-		# A completion request extracted from command arguments and the environment.
-		Request = Struct.new(:arguments, :index, keyword_init: true) do
-			def self.extract(arguments = ARGV, environment: ENV)
-				if index = Index.extract(environment)
-					self.new(arguments: arguments, index: index)
-				end
+		# A completion request extracted from command arguments truncated to the cursor.
+		Request = Struct.new(:arguments, keyword_init: true) do
+			def self.extract(arguments = ARGV)
+				arguments = arguments.collect(&:to_s)
+				arguments = [""] if arguments.empty?
+				
+				self.new(arguments: arguments)
 			end
 		end
 	end
